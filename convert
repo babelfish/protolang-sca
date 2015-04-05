@@ -1,0 +1,32 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use CXS;
+use feature 'say';
+use diagnostics;
+
+sub show_usage {
+  say "Usage:";
+  say "  ./convert <i2x/x2i>";
+  say "  Accepts input on STDIN.";
+  exit 1;
+}
+
+if (scalar @ARGV < 1)
+{
+  show_usage();
+}
+
+my $conv_type = $ARGV[0];
+
+while (my $line = <STDIN>)
+{
+  chomp $line;
+
+  $line =~ /^(.+?)(?: #.*)?$/;
+
+  my $converted = $conv_type eq 'i2x' ? ipa2cxs($1) : cxs2ipa($1);
+
+  say $converted;
+}
