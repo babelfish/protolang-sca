@@ -11,5 +11,5 @@ Usage:
 
 Expects to find rsca sound change rules in the file `ruleset`.
 Formatted protolang wordlists are provided (sorted alphabetically).
-Converts IPA values from word list into CXS (an X-SAMPA variant) so
+Converts IPA values from word list into CXS (an X-SAMPA variant, see http://www.theiling.de/ipa/ for details) so
 rsca can parse it then converts the rsca output back to IPA.
